@@ -161,7 +161,7 @@ export function ProductDetailModal({
 
               {store && (
                 <div className="flex items-center justify-between text-xs text-[#555E59] pt-1">
-                  <span>Ships directly from {store.city}. Free over $150.</span>
+                  <span>Ships directly from {store.city}. Free pan-India over ₹2,500.</span>
                   <button
                     type="button"
                     onClick={() => {

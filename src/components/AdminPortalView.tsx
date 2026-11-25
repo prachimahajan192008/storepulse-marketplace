@@ -32,7 +32,7 @@ export function AdminPortalView({ onCatalogMutated }: AdminPortalViewProps) {
   const [storeCategory, setStoreCategory] = useState('Ceramics & Tableware');
   const [storeEmail, setStoreEmail] = useState('');
   const [storeAddress, setStoreAddress] = useState('');
-  const [storeCity, setStoreCity] = useState('Portland, OR');
+  const [storeCity, setStoreCity] = useState('Jaipur, RJ');
   const [storeDesc, setStoreDesc] = useState('');
   const [storeOwnerId, setStoreOwnerId] = useState('');
   const [storeCover, setStoreCover] = useState(COVER_PRESETS[0].url);
@@ -256,7 +256,7 @@ export function AdminPortalView({ onCatalogMutated }: AdminPortalViewProps) {
                     required
                     value={storeName}
                     onChange={(e) => setStoreName(e.target.value)}
-                    placeholder="Atelier Nord"
+                    placeholder="Deccan Craft Studio"
                     className="w-full h-10 rounded-lg border border-[#121417]/15 bg-[#F6F7F5] px-3 text-sm"
                   />
                 </div>
@@ -278,7 +278,7 @@ export function AdminPortalView({ onCatalogMutated }: AdminPortalViewProps) {
                     type="email"
                     value={storeEmail}
                     onChange={(e) => setStoreEmail(e.target.value)}
-                    placeholder="studio@ateliernord.com"
+                    placeholder="studio@deccancraft.in"
                     className="w-full h-10 rounded-lg border border-[#121417]/15 bg-[#F6F7F5] px-3 text-sm"
                   />
                 </div>
@@ -290,7 +290,7 @@ export function AdminPortalView({ onCatalogMutated }: AdminPortalViewProps) {
                     required
                     value={storeAddress}
                     onChange={(e) => setStoreAddress(e.target.value)}
-                    placeholder="215 NW Flanders St, Portland, OR"
+                    placeholder="42 Johari Bazar Road, Jaipur, Rajasthan"
                     className="w-full h-10 rounded-lg border border-[#121417]/15 bg-[#F6F7F5] px-3 text-sm"
                   />
                 </div>

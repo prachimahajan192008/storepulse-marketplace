@@ -1,18 +1,18 @@
-export function formatMoney(cents: number): string {
-  return new Intl.NumberFormat('en-US', {
+export function formatMoney(paise: number): string {
+  return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: cents % 100 === 0 ? 0 : 2,
+    currency: 'INR',
+    minimumFractionDigits: paise % 100 === 0 ? 0 : 2,
     maximumFractionDigits: 2,
-  }).format(cents / 100);
+  }).format(paise / 100);
 }
 
 export function formatDate(iso: string): string {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return '';
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'short',
+  return new Intl.DateTimeFormat('en-IN', {
     day: 'numeric',
+    month: 'short',
     year: 'numeric',
   }).format(date);
 }
@@ -30,12 +30,14 @@ export function formatRoleLabel(role: string): string {
 
 export function formatPaymentLabel(method: string): string {
   switch (method) {
+    case 'UPI':
+      return 'UPI (GPay / PhonePe / Paytm)';
     case 'COD':
       return 'Cash on Delivery';
     case 'CARD_ON_DELIVERY':
-      return 'Card on Delivery';
+      return 'Card / UPI on Delivery';
     case 'BANK_TRANSFER':
-      return 'Direct Bank Transfer';
+      return 'NEFT / IMPS Bank Transfer';
     default:
       return method;
   }
@@ -48,7 +50,7 @@ export function formatStatusLabel(status: string): string {
     case 'PREPARING':
       return 'Preparing Shipment';
     case 'SHIPPED':
-      return 'Shipped';
+      return 'Dispatched';
     case 'DELIVERED':
       return 'Delivered';
     case 'CANCELLED':

@@ -281,7 +281,7 @@ function StorePulseShell() {
               <p className="font-editorial text-base font-medium text-[#121417]">StorePulse</p>
             </div>
             <p>
-              Direct-to-consumer curated studio storefront and verified store rating directory.
+              Curated Indian studio storefront and verified store rating directory.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-6">

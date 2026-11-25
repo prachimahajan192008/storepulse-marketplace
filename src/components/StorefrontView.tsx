@@ -81,17 +81,18 @@ export function StorefrontView({
           <div className="lg:col-span-5 flex flex-col justify-between py-2 sm:py-6">
             <div className="space-y-6">
               <p className="text-xs font-medium tracking-wide text-[#0F5132]">
-                Direct-to-Consumer Curated Marketplace
+                Curated Indian Craft &amp; Direct-to-Consumer Studios
               </p>
               <h1
                 className="font-editorial text-[#121417] font-medium tracking-[-0.025em] leading-[1.06]"
                 style={{ fontSize: 'clamp(2.25rem, 4vw, 3.6rem)' }}
               >
-                Objects crafted by independent studios, rated by verified buyers.
+                Objects crafted by independent Indian studios, rated by verified buyers.
               </h1>
               <p className="text-base text-[#424A45] leading-relaxed max-w-md">
-                Every storefront on StorePulse ships live studio inventory directly from the maker
-                and carries transparent 1–5 community ratings audited across our partner directory.
+                Every storefront on StorePulse ships live studio inventory directly from workshops
+                across Jaipur, Bengaluru, Kochi, New Delhi, and Uttarakhand—backed by transparent
+                1–5 verified store ratings.
               </p>
             </div>
 
@@ -149,8 +150,8 @@ export function StorefrontView({
             </p>
           </div>
           <div className="py-5 pl-4 lg:pl-6">
-            <p className="font-mono text-2xl font-medium tabular-nums text-[#121417]">$150+</p>
-            <p className="text-xs text-[#555E59] mt-1">Complimentary Tracked Courier</p>
+            <p className="font-mono text-2xl font-medium tabular-nums text-[#121417]">₹2,500+</p>
+            <p className="text-xs text-[#555E59] mt-1">Complimentary Pan-India Courier</p>
           </div>
         </div>
       </section>

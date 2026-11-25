@@ -5,11 +5,11 @@ import { orderItems, orders, products, ratings, stores, users } from './schema.t
 export type UserRecord = typeof users.$inferSelect;
 export type UserRole = 'USER' | 'STORE_OWNER' | 'SYSTEM_ADMIN';
 export type OrderStatus = 'CONFIRMED' | 'PREPARING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED';
-export type PaymentMethod = 'COD' | 'BANK_TRANSFER' | 'CARD_ON_DELIVERY';
+export type PaymentMethod = 'UPI' | 'COD' | 'CARD_ON_DELIVERY' | 'BANK_TRANSFER';
 
 const BOOTSTRAP_ADMIN_EMAIL = 'prachimahajan192008@gmail.com';
-const FREE_SHIPPING_THRESHOLD_CENTS = 15000;
-const FLAT_SHIPPING_CENTS = 1400;
+const FREE_SHIPPING_THRESHOLD_CENTS = 250000;
+const FLAT_SHIPPING_CENTS = 14900;
 
 export async function getOrCreateUser(input: {
   uid: string;

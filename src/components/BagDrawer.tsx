@@ -5,8 +5,8 @@ import { useAuth } from '../context/AuthContext';
 import { apiFetch, formatMoney, formatPaymentLabel } from '../lib/format';
 import { SafeImage } from './SafeImage';
 
-const FREE_SHIPPING_THRESHOLD_CENTS = 15000;
-const FLAT_SHIPPING_CENTS = 1400;
+const FREE_SHIPPING_THRESHOLD_CENTS = 250000;
+const FLAT_SHIPPING_CENTS = 14900;
 
 interface BagDrawerProps {
   open: boolean;
@@ -33,7 +33,7 @@ export function BagDrawer({
   const [phone, setPhone] = useState('');
   const [shippingAddress, setShippingAddress] = useState('');
   const [postalCode, setPostalCode] = useState('');
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('COD');
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('UPI');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [confirmedOrder, setConfirmedOrder] = useState<OrderRecord | null>(null);
@@ -205,8 +205,8 @@ export function BagDrawer({
             <div className="space-y-5">
               <div className="text-xs text-[#424A45] bg-white border border-[#121417]/10 rounded-lg px-3.5 py-2.5">
                 {remainingForFreeShipping === 0
-                  ? 'Complimentary tracked courier shipping unlocked on this order.'
-                  : `Add ${formatMoney(remainingForFreeShipping)} more for complimentary tracked shipping ($150 threshold).`}
+                  ? 'Complimentary pan-India tracked courier unlocked on this order.'
+                  : `Add ${formatMoney(remainingForFreeShipping)} more for complimentary pan-India shipping (₹2,500 threshold).`}
               </div>
 
               <ul className="divide-y divide-[#121417]/10">
@@ -299,14 +299,14 @@ export function BagDrawer({
                   required
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  placeholder="Alex Rivera"
+                  placeholder="Aarav Sharma"
                   className="w-full h-10 rounded-lg border border-[#121417]/15 bg-white px-3 text-sm focus:outline-none focus:border-[#0F5132]"
                 />
               </div>
 
               <div>
                 <label htmlFor="chk-phone" className="block text-xs font-medium text-[#424A45] mb-1">
-                  Contact Phone
+                  Mobile Number
                 </label>
                 <input
                   id="chk-phone"
@@ -314,7 +314,7 @@ export function BagDrawer({
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+1 (555) 234-5678"
+                  placeholder="+91 98765 43210"
                   className="w-full h-10 rounded-lg border border-[#121417]/15 bg-white px-3 text-sm focus:outline-none focus:border-[#0F5132]"
                 />
               </div>
@@ -329,21 +329,22 @@ export function BagDrawer({
                   rows={2}
                   value={shippingAddress}
                   onChange={(e) => setShippingAddress(e.target.value)}
-                  placeholder="418 NW 11th Ave, Apt 3B, Portland, OR"
+                  placeholder="Flat 402, 100 Feet Road, Indiranagar, Bengaluru, Karnataka"
                   className="w-full rounded-lg border border-[#121417]/15 bg-white px-3 py-2 text-sm focus:outline-none focus:border-[#0F5132]"
                 />
               </div>
 
               <div>
                 <label htmlFor="chk-zip" className="block text-xs font-medium text-[#424A45] mb-1">
-                  Postal Code
+                  PIN Code
                 </label>
                 <input
                   id="chk-zip"
                   required
+                  maxLength={6}
                   value={postalCode}
                   onChange={(e) => setPostalCode(e.target.value)}
-                  placeholder="97209"
+                  placeholder="560038"
                   className="w-full h-10 rounded-lg border border-[#121417]/15 bg-white px-3 text-sm font-mono focus:outline-none focus:border-[#0F5132]"
                 />
               </div>
@@ -356,19 +357,24 @@ export function BagDrawer({
                   {(
                     [
                       {
+                        id: 'UPI',
+                        title: 'UPI (GPay / PhonePe / Paytm)',
+                        note: 'Receive verified studio UPI ID and order reference upon confirmation.',
+                      },
+                      {
                         id: 'COD',
-                        title: 'Cash on Delivery',
-                        note: 'Pay courier in cash when your parcel arrives.',
+                        title: 'Cash on Delivery (COD)',
+                        note: 'Pay courier in cash when your parcel arrives anywhere in India.',
                       },
                       {
                         id: 'CARD_ON_DELIVERY',
-                        title: 'Card on Delivery',
-                        note: 'Tap contactless card on courier terminal at delivery.',
+                        title: 'Card / UPI on Delivery',
+                        note: 'Scan UPI QR or tap card on courier handheld at delivery.',
                       },
                       {
                         id: 'BANK_TRANSFER',
-                        title: 'Direct Bank Transfer',
-                        note: 'Receive studio invoice and wire reference after confirmation.',
+                        title: 'NEFT / IMPS Bank Transfer',
+                        note: 'Receive GST-compliant studio invoice and bank transfer details.',
                       },
                     ] as const
                   ).map((option) => (

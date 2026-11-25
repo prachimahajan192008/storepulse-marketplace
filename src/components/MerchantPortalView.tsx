@@ -36,7 +36,7 @@ export function MerchantPortalView({ onCatalogMutated }: MerchantPortalViewProps
   const [storeId, setStoreId] = useState('');
   const [name, setName] = useState('');
   const [category, setCategory] = useState('Ceramics & Tableware');
-  const [priceDollars, setPriceDollars] = useState('145');
+  const [priceDollars, setPriceDollars] = useState('4800');
   const [stock, setStock] = useState('12');
   const [materialSpec, setMaterialSpec] = useState('Kiln-fired stoneware, satin matte glaze');
   const [dimensions, setDimensions] = useState('20 cm H x 12 cm D');
@@ -296,13 +296,13 @@ export function MerchantPortalView({ onCatalogMutated }: MerchantPortalViewProps
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-[#555E59] mb-1">
-                    Price (USD)
+                    Price (INR ₹)
                   </label>
                   <input
                     required
                     type="number"
-                    min="1"
-                    step="0.01"
+                    min="100"
+                    step="1"
                     value={priceDollars}
                     onChange={(e) => setPriceDollars(e.target.value)}
                     className="w-full h-10 rounded-lg border border-[#121417]/15 bg-[#F6F7F5] px-3 text-sm font-mono"

@@ -1,6 +1,6 @@
 export type UserRole = 'USER' | 'STORE_OWNER' | 'SYSTEM_ADMIN';
 export type OrderStatus = 'CONFIRMED' | 'PREPARING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED';
-export type PaymentMethod = 'COD' | 'BANK_TRANSFER' | 'CARD_ON_DELIVERY';
+export type PaymentMethod = 'UPI' | 'COD' | 'CARD_ON_DELIVERY' | 'BANK_TRANSFER';
 
 export interface UserProfile {
   id: number;

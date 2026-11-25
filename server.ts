@@ -41,6 +41,7 @@ const ALLOWED_STATUSES: ReadonlySet<string> = new Set([
   'CANCELLED',
 ]);
 const ALLOWED_PAYMENTS: ReadonlySet<string> = new Set([
+  'UPI',
   'COD',
   'BANK_TRANSFER',
   'CARD_ON_DELIVERY',
@@ -148,8 +149,8 @@ async function startServer() {
       if (typeof shippingAddress !== 'string' || shippingAddress.trim().length < 6) {
         return res.status(400).json({ error: 'Please enter a complete delivery address.' });
       }
-      if (typeof postalCode !== 'string' || postalCode.trim().length < 3) {
-        return res.status(400).json({ error: 'Please enter a valid postal code.' });
+      if (typeof postalCode !== 'string' || postalCode.trim().length < 5) {
+        return res.status(400).json({ error: 'Please enter a valid 6-digit PIN code.' });
       }
       if (typeof paymentMethod !== 'string' || !ALLOWED_PAYMENTS.has(paymentMethod)) {
         return res.status(400).json({ error: 'Please choose a supported payment option.' });
@@ -259,8 +260,8 @@ async function startServer() {
         if (typeof name !== 'string' || name.trim().length < 2) {
           return res.status(400).json({ error: 'Product name must be at least 2 characters.' });
         }
-        if (!Number.isFinite(priceCents) || priceCents < 100 || priceCents > 5000000) {
-          return res.status(400).json({ error: 'Price must be between $1 and $50,000.' });
+        if (!Number.isFinite(priceCents) || priceCents < 10000 || priceCents > 500000000) {
+          return res.status(400).json({ error: 'Price must be between ₹100 and ₹50,00,000.' });
         }
         if (!Number.isInteger(numericStock) || numericStock < 0 || numericStock > 10000) {
           return res.status(400).json({ error: 'Stock must be a whole number from 0 to 10,000.' });
@@ -326,8 +327,8 @@ async function startServer() {
 
         if (req.body?.priceDollars !== undefined) {
           const cents = Math.round(Number(req.body.priceDollars) * 100);
-          if (!Number.isFinite(cents) || cents < 100 || cents > 5000000) {
-            return res.status(400).json({ error: 'Price must be between $1 and $50,000.' });
+          if (!Number.isFinite(cents) || cents < 10000 || cents > 500000000) {
+            return res.status(400).json({ error: 'Price must be between ₹100 and ₹50,00,000.' });
           }
           updates.priceCents = cents;
         }
@@ -436,7 +437,7 @@ async function startServer() {
         category: typeof category === 'string' && category.trim() ? category : 'Curated Goods',
         email,
         address,
-        city: typeof city === 'string' && city.trim() ? city : 'Portland, OR',
+        city: typeof city === 'string' && city.trim() ? city : 'Jaipur, RJ',
         description:
           typeof description === 'string' && description.trim()
             ? description
