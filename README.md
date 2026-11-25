@@ -467,7 +467,7 @@ Potential improvements for future versions include:
 **Authentication:** Firebase  
 **ORM:** Drizzle ORM  
 
-**Live Demo:** https://storepulse-curated-storefront-verified-store-rati.ai.studio.
+**Live Demo:** (https://storepulse-curated-storefront-verified-store-rati.ai.studio/).
 
 **GitHub Repository:** (https://github.com/prachimahajan192008/storepulse-marketplace).
 
