@@ -1,0 +1,8 @@
+{
+  "name": "StorePulse — Curated Storefront & Verified Store Ratings",
+  "description": "Direct-to-consumer curated marketplace with verified store ratings, live inventory, and role-based merchant and admin portals backed by Express and PostgreSQL.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
