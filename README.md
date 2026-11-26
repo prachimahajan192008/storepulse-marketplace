@@ -468,7 +468,7 @@ Potential improvements for future versions include:
 **ORM:** Drizzle ORM  
 
 **Live Demo:** (https://storepulse-curated-storefront-verified-store-rati.ai.studio/)
-(https://storepulse-curated-storefront-verified-store-rati.ai.studio).
+([https://storepulse-curated-storefront-verified-store-rati.ai.studio](https://storepulse-curated-storefront-verified-store-rati.ai.studio)).
 
 **GitHub Repository:** (https://github.com/prachimahajan192008/storepulse-marketplace).
 
